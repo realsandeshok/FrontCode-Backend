@@ -11,9 +11,15 @@ const CodeSnippetSchema = new Schema({
     required: true,
   },
   code: {
-    html: String,
-    css: String,
-    javascript: String,
+    html: {
+      type: String,
+    },
+    css: {
+      type: String,
+    },
+    javascript: {
+      type: String,
+    },
   },
   date: {
     type: Date,

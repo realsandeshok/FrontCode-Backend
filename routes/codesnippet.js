@@ -23,7 +23,7 @@ router.post(
   [body("code")],
   async (req, res) => {
     try {
-      const { title, html, css, javascript } = req.body;
+      const { title, code } = req.body;
       // If errors ?  return bad request and the respective errors
       const result = validationResult(req);
       if (!result.isEmpty()) {
@@ -32,7 +32,7 @@ router.post(
 
       const codesnippet = new CodeSnippet({
         title,
-        code: { html, css, javascript },
+        code,
         user: req.user.id,
       });
 
