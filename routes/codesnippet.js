@@ -23,7 +23,7 @@ router.post(
   [body("code")],
   async (req, res) => {
     try {
-      const { title, code } = req.body;
+      const { title, html, css, javascript } = req.body;
       // If errors ?  return bad request and the respective errors
       const result = validationResult(req);
       if (!result.isEmpty()) {
