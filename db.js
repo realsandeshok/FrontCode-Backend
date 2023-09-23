@@ -1,12 +1,19 @@
 const mongoose = require("mongoose");
 
 const mongoURI =
-  "mongodb+srv://sandeshmadoori:MEjz8eLL7aWKbiBr@frontcode.weadzas.mongodb.net/";
+  "mongodb://0.0.0:27017"
 
-const Connection = () => {
-  mongoose.connect(mongoURI);
+const Connection = async () => {
+  try {
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    console.log("Connected to MongoDB");
+  } catch (err) {
+    console.error("Error connecting to MongoDB:", err);
+  }
 };
-
-console.log("Connected");
 
 module.exports = Connection;
