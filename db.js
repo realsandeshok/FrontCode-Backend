@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 
-const mongoURI =
-<<<<<<< HEAD
-  "mongodb+srv://sandeshmadoori:ecgphqioTEjyaOPQ@frontcode.weadzas.mongodb.net/";
-=======
-  "mongodb://0.0.0:27017"
->>>>>>> 143f26a9277ca121991709993b5cbd4aa0b8c2e8
+const mongoURI = "mongodb://0.0.0:27017"
+
 
 const Connection = async () => {
   try {
