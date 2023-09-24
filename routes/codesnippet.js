@@ -23,7 +23,7 @@ router.post(
   [body("code")],
   async (req, res) => {
     try {
-      const { title, code } = req.body;
+      const { title, html, css, javascript } = req.body;
       // If errors ?  return bad request and the respective errors
       const result = validationResult(req);
       if (!result.isEmpty()) {
@@ -32,7 +32,9 @@ router.post(
 
       const codesnippet = new CodeSnippet({
         title,
-        code,
+        html,
+        css,
+        javascript,
         user: req.user.id,
       });
 
@@ -47,15 +49,21 @@ router.post(
 
 // ROUTE 3: Update an existing codesnippet of a particular user at endpoint "/api/codesnippet/updatecodesnippet"
 router.put("/updatecodesnippet/:id", getuser, async (req, res) => {
-  const { title, code } = req.body;
+  const { title, html, css, javascript } = req.body;
   try {
     // Create a newCodeSnippet object
     const newCodeSnippet = {};
     if (title) {
       newCodeSnippet.title = title;
     }
-    if (code) {
-      newCodeSnippet.code = code;
+    if (html) {
+      newCodeSnippet.html = html;
+    }
+    if (css) {
+      newCodeSnippet.css = css;
+    }
+    if (javascript) {
+      newCodeSnippet.javascript = javascript;
     }
 
     // Find the codesnippet to be updated and update it

@@ -10,16 +10,14 @@ const CodeSnippetSchema = new Schema({
     type: String,
     required: true,
   },
-  code: {
-    html: {
-      type: String,
-    },
-    css: {
-      type: String,
-    },
-    javascript: {
-      type: String,
-    },
+  html: {
+    type: String,
+  },
+  css: {
+    type: String,
+  },
+  javascript: {
+    type: String,
   },
   date: {
     type: Date,
