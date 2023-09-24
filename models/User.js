@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   name: {
@@ -21,6 +22,7 @@ const UserSchema = new Schema({
   },
 });
 
+UserSchema.index({ yourField: 1 }, { background: true });
 const User = mongoose.model("user", UserSchema);
-User.createIndexes();
+// User.createIndexes();
 module.exports = User;
