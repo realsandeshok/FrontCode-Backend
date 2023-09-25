@@ -14,6 +14,17 @@ router.get("/getallcodesnippets", getuser, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+// ROUTE : Get particular codesnippet of a particular user at endpoint "/api/codesnippet/getallcodesnippets".
+router.get("/codesnippet/:id", async (req, res) => {
+  try {
+    const codesnippet = await CodeSnippet.findById(req.params.id); // user: req.user.id
+    console.log(codesnippet);
+    res.json(codesnippet);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal server error");
+  }
+});
 
 // ROUTE 2: Add new codesnippet of a particular user at endpoint "/api/codesnippet/addcodesnippet"
 router.post(
